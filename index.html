@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kalkulacije</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body onbeforeprint="nevidljivost()">
+    <h3 style="text-align: center; color: Gainsboro">K A L K U L A C I J A</h3>
+    <form class="" action="index.html" name="form1" method="post">
+      <label class="boja"for="Objekat">Objekat:</label>
+      <select name="Objekat" id="Objekat" style="position:absolute;left:70px"autofocus
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'">
+        <option value="Salajka">Salajka</option>
+        <option value="Detelinara">Detelinara</option>
+        <option value="Zrenjanin">Zrenjanin</option>
+      </select>
+      <label class="boja"for="relacija"style="position:absolute; left:180px;">Relacija:</label>
+      <input type="text"id="relacija" name="relacija" placeholder="utovarno-istovarno mesto"style="position:absolute;left:250px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'">
+      <label class="boja"for="roba"style="position:absolute;left:450px;">Roba:</label>
+      <input list="browser" id="roba" class="polozaj" name="roba"style="left:500px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'">
+        <datalist id="browser">
+          <option value="ugalj">
+          <option value="lim">
+          <option value="kamen">
+          <option value="tucanik">
+          <option value="pirit">
+          <option value="koks">
+          <option value="crep">
+          <option value="konteneri">
+        </datalist>
+      <label for="tona"class="polozaj boja"style="left:680px">Kolicina (t):</label>
+      <input type="number"class="polozaj sirina50"maxlength="4"id="tona" name="tona" value=""style="left:780px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'">
+      <h4 class="boja">Plovidba u zemlji</h4>
+      <h4 class="boja"style="position:absolute; left:350px;top:80px;">Plovidba u inostranstvu</h4>
+      <label class="boja"for="od_km_nizvodno_Srb">Od km nizvodno:</label>
+      <input type="number"onchange="proveraKMSrb(this.value, this)"class="polozaj sirina50 levo181" maxlength="4"id="od_km_nizvodno_Srb"name="od_km_nizvodno_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="do_km_nizvodno_Srb">Do km nizvodno:</label>
+      <input type="number"onchange="proveraKMSrb(this.value, this)"class="polozaj sirina50 levo181" maxlength="4"id="do_km_nizvodno_Srb"name="do_km_nizvodno_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="od_km_uzvodno_Srb">Od km uzvodno:</label>
+      <input type="number"onchange="proveraKMSrb(this.value, this)"class="polozaj sirina50 levo181"maxlength="4"id="od_km_uzvodno_Srb"name="od_km_uzvodno_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="do_km_uzvodno_Srb">Do km uzvodno:</label>
+      <input type="number"onchange="proveraKMSrb(this.value, this)"class="polozaj sirina50 levo181"maxlength="4"id="do_km_uzvodno_Srb"name="do_km_uzvodno_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="usputna_zadrz_Srb">Usputna zadrz(h):</label>
+      <input type="number"onchange="proveraUsputnaZad(this.value, this)"class="polozaj sirina40 levo181" maxlength="3"id="usputna_zadrz_Srb"name="usputna_zadrz_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="zadrz_utovar_Srb">Zadrz utovar(h):</label>
+      <input type="number"onchange="proveraUtovarIstovar(this.value, this)"class="polozaj sirina40 levo181"maxlength="3"id="zadrz_utovar_Srb"name="zadrz_utovar_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="zadrz_istovar_Srb">Zadrz istovar(h):</label>
+      <input type="number"onchange="proveraUtovarIstovar(this.value, this)"class="polozaj sirina40 levo181"maxlength="3"id="zadrz_istovar_Srb"name="zadrz_istovar_Srb" value="0"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="polozaj levo350 boja"for="od_km_nizvodno_Ino"style="top:139px;">Od km nizvodno:</label>
+      <input type="number"onchange="proveraKMIno(this.value, this)"class="polozaj sirina50 levo500" maxlength="4"id="od_km_nizvodno_Ino"name="od_km_nizvodno_Ino" value="0"style="top:139px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="do_km_nizvodno_Ino"class="polozaj levo350 boja"style="top:157px">Do km nizvodno:</label>
+      <input type="number"onchange="proveraKMIno(this.value, this)"class="polozaj levo500 sirina50" maxlength="4"id="do_km_nizvodno_Ino"name="do_km_nizvodno_Ino" value="0"style="top:157px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="od_km_uzvodno_Ino"class="polozaj levo350 boja"style="top:175px;">Od km uzvodno:</label>
+      <input type="number"onchange="proveraKMIno(this.value, this)"class="polozaj levo500 sirina50"maxlength="4"id="od_km_uzvodno_Ino"name="od_km_uzvodno_Ino" value="0"style="top:175px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="do_km_uzvodno_Ino"class="polozaj levo350 boja"style="top:193px;">Do km uzvodno:</label>
+      <input type="number"onchange="proveraKMIno(this.value, this)"class="polozaj levo500 sirina50"maxlength="4"id="do_km_uzvodno_Ino"name="do_km_uzvodno_Ino" value="0"style="top:193px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="usputna_zadrz_Ino"class="polozaj levo350 boja"style="top:211px">Usputna zadrz(h):</label>
+      <input type="number"onchange="proveraUsputnaZad(this.value, this)"class="polozaj levo500 sirina40" maxlength="3"id="usputna_zadrz_Ino"name="usputna_zadrz_Ino" value="0"style="top:211px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="zadrz_utovar_Ino"class="polozaj levo350 boja"style="top:229px;">Zadrz utovar(h):</label>
+      <input type="number"onchange="proveraUtovarIstovar(this.value, this)"class="polozaj levo500 sirina40"maxlength="3"id="zadrz_utovar_Ino"name="zadrz_utovar_Ino" value="0"style="top:229px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label for="zadrz_istovar_Ino"class="polozaj levo350 boja"style="top:247px">Zadrz istovar(h):</label>
+      <input type="number"onchange="proveraUtovarIstovar(this.value, this)"class="polozaj levo500 sirina40"maxlength="3"id="zadrz_istovar_Ino"name="zadrz_istovar_Ino" value="0"style="top:247px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="brzina_nizvodno"style="position:absolute;top:267px">Brzina nizvodno(km/h):</label>
+      <input type="number"onchange="proveraNizBrzine(this.value, this)"class="polozaj levo181 sirina40" maxlength="4"id="brzina_nizvodno"name="brzina_nizvodno" value="0"style="top:267px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="brzina_uzvodno"style="position:absolute;top:288px">Brzina_uzvodno(km/h):</label>
+      <input type="number"onchange="proveraUzBrzine(this.value, this)" maxlength="4"class="polozaj levo181 sirina40"id="brzina_uzvodno"name="brzina_uzvodno" value="0"style="top:288px"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <hr class="boja"style="position:absolute;width:600px;top:305px;border-style: dotted;">
+      <h4 class="boja"style="position:absolute;top:307px;">Trajanje plovidbe</h4>
+      <label class="boja"for="dana_u_Srb"style="position:absolute;top:353px">Ukupno dana u Srbiji:</label>
+      <input type="number"class="polozaj levo181 sirina40"id="dana_u_Srb"name="dana_u_Srb" disabled value="0" style="top:353px"><br>
+      <label class="boja"for="dana_u_Ino"style="position:absolute;top:374px">Ukupno dana u Ino:</label>
+      <input type="number"class="polozaj levo181 sirina40"id="dana_u_Ino"name="dana_u_Ino" value="0" disabled style="top:374px"><br>
+      <label class="boja"for="ukupno_dana"style="position:absolute;top:395px">Ukupno dana:</label>
+      <input type="number"class="polozaj levo181 sirina40"id="ukupno_dana"name="ukupno_dana" value="0" disabled style="top:395px"><br>
+      <hr style="position:absolute;width:600px;top:413px;">
+      <h4 class="boja"style="position:absolute;top:412px;">Ulazni parametri</h4>
+      <label class="boja"for="br_posade"style="position:absolute;top:458px;">Broj posade:</label>
+      <input type="number"onchange="proveraBrPosade(this.value, this)"maxlength="1"class="polozaj levo181 sirina40"id="br_posade"name="br_posade" value=""style="top:458px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="neto_plata"style="position:absolute;top:479px;">Neto plata (din):</label>
+      <input type="number"onchange="proveraNetoPlate(this.value, this)"maxlength="5"class="polozaj levo181 sirina60"id="neto_plata" name="neto_plata" value="0"style="top:479px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="cena_goriva"style="position:absolute;top:500px">Cena goriva (din/lit):</label>
+      <input type="number"onchange="proveraCeneGoriva(this.value, this)"maxlength="6"class="polozaj levo181 sirina60"id="cena_goriva" name="cena_goriva" value="0"style="top:500px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="br_ino_krmara"style="position:absolute;top:521px">Broj ino krmara:</label>
+      <input type="number"onchange="proveraBrojInoKrmara(this.value, this)"maxlength="1"class="polozaj levo181 sirina40"id="br_ino_krmara" name="br_ino_krmara" value=""style="top:521px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="kurs_eura"style="position:absolute;top:542px">Kurs eura (rsd):</label>
+      <input type="number"onchange="proveraKursaEvra(this.value, this)"maxlength="6"class="polozaj levo181 sirina60" id ="kurs_eura" name="kurs_eura" value="0"style="top:542px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="ino_dnevnice"style="position:absolute;top:563px">Ino dnevnice(eur/dan):</label>
+      <input type="number"onchange="proveraInoDnevnica(this.value, this)"maxlength="2"class="polozaj levo181 sirina40"id="ino_dnevnice" name="ino_dnevnice" value="0"style="top:563px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="ino_dnevnice_krmari"style="position:absolute;top:584px">Ino dnev. krmari(eur/dan):</label>
+      <input type="number"onchange="proveraInoDnevKrmara(this.value, this)"maxlength="2"class="polozaj levo181 sirina40"id="ino_dnevnice_krmari" name="ino_dnevnice_krmari" value="0"style="top:584px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="potrebno_goriva"style="position:absolute;top:605px">Potrebno goriva (lit):</label>
+      <input type="number"class="polozaj levo181 sirina60" name="potrebno_goriva" value="0" disabled style="top:605px;"><br><br><br>
+      <hr style="position:absolute;width:600px;top:625px;">
+      <h4 class="boja"style="position:absolute;top:628px;">Struktura troskova</h4>
+      <label class="boja"for="troskovi_goriva_i_maziva"style="position:absolute;top:674px">Troskovi goriva i maziva (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="troskovi_goriva_i_maziva" name="pogonski_troskovi" value="0" disabled style="top:674px;"><br>
+      <label class="boja"for="Amortizacija"style="position:absolute;top:695px">Amortizacija (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70" id="Amortizacija" name="Amortizacija" value="0"disabled style="top:695px;"><br>
+      <label class="boja"for="tekuce_i_invest"style="position:absolute;top:716px">Tekuce i investiciono (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70" name="tekuce_i_invest" value="0" disabled style="top:716px;"><br>
+      <label class="boja"for="bruto_plata"style="position:absolute;top:737px">Bruto plata (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="bruto_plata" name="bruto_plata" value="0"disabled style="top:737px;"><br>
+      <label class="boja"for="Ino_dnevnice"style="position:absolute;top:758px">Ino dnevnice (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="Ino_dnevnice" name="Ino_dnevnice" value="0"disabled style="top:758px;"><br>
+      <label class="boja"for="zakonske_i_ugovorne_obaveze"style="position:absolute;top:779px">Zakonske i ugovorne obaveze (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70" name="zakonske_i_ugovorne_obaveze" value="0"disabled style="top:779px;"><br>
+      <label class="boja"for="lucke_takse"style="position:absolute;top:800px">Lucke takse (eur):</label>
+      <input type="number"maxlength="4"class="polozaj levo243 sirina70"id="lucke_takse" name="lucke_takse" value="0" style="top:800px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="ostali_troskovi"style="position:absolute;top:821px">Ostali troskovi (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="ostali_troskovi" name="ostali_troskovi" value="0"disabled style="top:821px;"><br>
+      <label class="boja"for="ukupni_troskovi"style="position:absolute;top:842px">Ukupni troskovi (eur):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="ukupni_troskovi" name="ukupni_troskovi" value="0"disabled style="top:842px;"><br>
+      <label class="boja"for="cena_kostanja_prevoza"style="position:absolute;top:863px">Cena kostanja prevoza (eur/toni):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="cena_kostanja_prevoza" name="cena_kostanja_prevoza" value="0" disabled style="top:863px;"><br>
+      <label class="boja"for="profit"style="position:absolute;top:884px">Profit %:</label>
+      <input type="number"maxlength="4"class="polozaj levo243 sirina70"id="profit" name="profit" value="1.10"style="top:884px;"
+      onfocus="this.style.backgroundColor='red'"onblur="this.style.backgroundColor='white'"><br>
+      <label class="boja"for="cena_prevozne_usluge"style="position:absolute;top:905px">Cena prevozne usluge (eur/toni):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="cena_prevozne_usluge" name="cena_prevozne_usluge" value="0"disabled style="top:905px;"><br>
+      <label class="boja"for="cena_prevozne_usluge1"style="position:absolute;top:926px">Cena prevozne usluge (din/toni):</label>
+      <input type="number"class="polozaj levo243 sirina70"id="cena_prevozne_usluge1" name="cena_prevozne_usluge1" value="0"disabled style="top:926px;"><br><br>
+      <button type="button"id="stampa1"onclick="izracunaj()" name="button"style="position:absolute;top:926px;left:335px">Izracunaj i stampaj</button>
+      <button type="button"id="sacuvaj"onclick="add()" name="button"style="position:absolute;top:926px;left:470px;">Sacuvaj</button>
+      <button type="button"id="pretraga"onclick="read()" name="button"style="position:absolute;top:926px;left:533px;">Pretraga</button>
+      <button type="button"id="sve"onclick="readAll()" name="button"style="position:absolute;top:926px;left:600px;">Sve</button>
+      <button type="button"id="brisanje"onclick="remove()" name="button"style="position:absolute;top:926px;left:639px;">Brisanje</button>
+      <button type="button"id="indeksnaPretraga" onclick="indeksna()" name="button"style="position:absolute;top:890px;left:520px;">Pretraga po relaciji</button>
+    </form>
+    <script src="script.js" charset="utf-8"></script>
+    <br><br><br><h4 class="boja">kalkulisao:________________</h4>
+    <p id="datum"class="polozaj"style="top:970px; left:700px"></p>
+  </body>
+</html>
