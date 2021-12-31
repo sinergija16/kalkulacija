@@ -1,0 +1,33 @@
+.polozaj{
+  position: absolute;
+}
+.sirina40{
+  width: 40px;
+}
+.sirina50{
+  width: 50px;
+}
+.sirina60{
+  width: 60px;
+}
+.sirina70{
+  width: 70px;
+}
+.levo181{
+  left: 181px;
+}
+.levo243{
+  left: 243px
+}
+.levo350{
+  left: 350px
+}
+.levo500{
+  left: 500px;
+}
+body{
+  background-image: url("Brod.jpg");
+}
+.boja{
+  color: gainsboro;
+}
